@@ -8,7 +8,31 @@ body {
   height: 100vh;
   overflow-x: hidden;
 }
+.btn-outline-warning {
+  background-color: #28a745;
+  color: #ffffff;
+}
+#endVote {
+  background-color: #dc3545;
+  color: #ffffff;
+}
+.btn-outline-secondary {
+  background-color: #007bff;
+  color: #ffffff;
+}
+.navbar {
+  /* Customize other navbar styles here if needed */
+  background-color: #000000;
+}
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
 
+.navbar-brand:hover,
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+}
 .login {
   width: 50%;
   margin: 10% auto;
