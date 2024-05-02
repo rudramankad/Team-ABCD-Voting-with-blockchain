@@ -27,6 +27,7 @@
  *
  * MNEMONIC = <Your 12 phrase mnemonic>
  * PROJECT_ID = <Your Infura project id>
+ * 
  *
  * Deployment with Truffle Dashboard (Recommended for best security practice)
  * --------------------------------------------------------------------------
@@ -45,6 +46,8 @@
 // const { MNEMONIC, PROJECT_ID } = process.env;
 
 // const HDWalletProvider = require('@truffle/hdwallet-provider');
+
+const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 module.exports = {
   /**
@@ -69,6 +72,25 @@ module.exports = {
       port: 7545, // Standard Ethereum port (default: none)
       network_id: "5777", // Any network (default: none)
     },
+    sepolia: {
+      provider: () => new HDWalletProvider({
+        mnemonic: {
+          phrase: "oyster soldier cluster oyster alter rebel clown green check inside accuse nose",
+        },
+        providerOrUrl: "https://sepolia.infura.io/v3/29cb536a7951444db918bd38f5482536",
+        // derivationPath: "m/44'/1'/0'/0/"
+      }),
+      network_id: 11155111, // Sepolia's network ID
+      gas: 4000000, // Adjust the gas limit as per your requirements
+      gasPrice: 10000000000, // Set the gas price to an appropriate value
+      confirmations: 2, // Set the number of confirmations needed for a transaction
+      timeoutBlocks: 5000, // Set the timeout for transactions
+      skipDryRun: true, // Skip the dry run option
+      pollingInterval: 1800000,
+      disableConfirmationListener: true,
+      networkCheckTimeout: 10000,
+      timeoutBlocks: 200
+    }
     //
     // An additional network, but with some advanced options…
     // advanced: {

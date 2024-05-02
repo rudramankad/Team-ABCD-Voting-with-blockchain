@@ -900,9 +900,9 @@ var userAccountBalance;
 var chairPerson;
 var lastTokenId;
 var lastListingId;
-var ntfAddress = "0x636B996b864de8952aD7A93CD567D4183AadC84a";
-var marketAddress = "0x8Ef06A1C0256d4247b48235D78197D180fca3c0A";
-var ballotAddress = "0x166f1Ec8844E0dAb5d4356A3A755094461b2ba0D";
+var ntfAddress = "0xD81CBBFde8115E7c4E0191dC4E74Ff59624AcB55";
+var marketAddress = "0xDCC37b26DfcbF072A6fd8FB42DcD96135B945dbb";
+var ballotAddress = "0x34C0edF25cEF61C393242d89cDdc090d45cFfA17";
 //   var name = document.querySelector("#name1");
 var proposal_name = document.querySelector("#proposal_name");
 var alertPlaceholder = document.getElementById("txStatus");
@@ -924,7 +924,7 @@ function startApp() {
     ${userAccountBalance} Ether `;
 
   //  e = sessionStorage.getItem("endVote");
-  if (window.location.href == "http://127.0.0.1:5500/Voter.html") {
+  if (window.location.href == "http://127.0.0.1:8080/Voter.html") {
     if (JSON.parse(sessionStorage.getItem("pause"))) {
       $(".votingSection").hide();
       $(".resultSection").show();
@@ -936,7 +936,7 @@ function startApp() {
     }
   }
 
-  if (window.location.href == "http://127.0.0.1:5500/Admin.html") {
+  if (window.location.href == "http://127.0.0.1:8080/Admin.html") {
     if (!JSON.parse(sessionStorage.getItem("pause"))) {
       document.getElementById("pause").value = "pause";
       document.getElementById("pause").textContent = "pause";
@@ -1433,7 +1433,7 @@ $("#reset").click(function (val) {
 //for login home page
 $("#submit").click(function () {
   let value = $("#loginId").val();
-  let temp = "0xE390F21E31ccd2160AE461fFA24788FfD98901b9";
+  let temp = "0x25236bdb3cd72bEBaA0bea08f6f42cB924c3F659";
   if (value.toLowerCase() == temp.toLowerCase()) {
     window.location.href = "./Admin.html";
   } else if (value.toLowerCase() == userAccount.toLowerCase()) {
