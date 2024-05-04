@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   /* Apply background image */
-  background-image: url('../BlockchainProject/img/bg.jpeg'); /* Adjust path based on file location */
+  background-image: url('../Team-ABCD-Voting-with-blockchain/img/bg.jpeg'); /* Adjust path based on file location */
   background-size: cover;
   background-position: center;
   height: 100vh;
