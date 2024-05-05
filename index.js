@@ -900,16 +900,16 @@ var userAccountBalance;
 var chairPerson;
 var lastTokenId;
 var lastListingId;
-var ntfAddress = "0x636B996b864de8952aD7A93CD567D4183AadC84a";
-var marketAddress = "0x8Ef06A1C0256d4247b48235D78197D180fca3c0A";
-var ballotAddress = "0x166f1Ec8844E0dAb5d4356A3A755094461b2ba0D";
+var ntfAddress = "0xf0F896b98933C6Ff4F9Fa108DD2B0B7A0a285EDB";
+var marketAddress = "0xAD7bD83105b8e0c4A92CC22fc20d397899a3EFB0";
+var ballotAddress = "0x9aeEe08247F61f1A0a1AEe1a019266dcc47Ffe63";
 //   var name = document.querySelector("#name1");
 var proposal_name = document.querySelector("#proposal_name");
 var alertPlaceholder = document.getElementById("txStatus");
 
 function startApp() {
   //ballot contratc address
-  console.log(userAccount);
+  console.log(userAccount, window.location.href);
   Ballot = new web3.eth.Contract(ballotAbi, ballotAddress);
   NFT = new web3.eth.Contract(nftAbi, ntfAddress);
   Market = new web3.eth.Contract(marketAbi, marketAddress);
@@ -924,20 +924,22 @@ function startApp() {
     ${userAccountBalance} Ether `;
 
   //  e = sessionStorage.getItem("endVote");
-  if (window.location.href == "http://127.0.0.1:5500/Voter.html") {
-    if (JSON.parse(sessionStorage.getItem("pause"))) {
+  if (window.location.href == "http://localhost:8080/Voter.html") {
+    console.log("inside HEREF!!!!!!!!!!!1")
+    if (JSON.parse(localStorage.getItem("pause"))) {
       $(".votingSection").hide();
       $(".resultSection").show();
       $(".resultSection").html(`<p>Voting paused</p>`);
-    } else if (JSON.parse(sessionStorage.getItem("endVote"))) {
+    } else if (JSON.parse(localStorage.getItem("endVote"))) {
+      console.log("inside WINNER CALLED")
       $(".votingSection").hide();
       $(".resultSection").show();
       winner();
     }
   }
 
-  if (window.location.href == "http://127.0.0.1:5500/Admin.html") {
-    if (!JSON.parse(sessionStorage.getItem("pause"))) {
+  if (window.location.href == "http://localhost:8080/Admin.html") {
+    if (!JSON.parse(localStorage.getItem("pause"))) {
       document.getElementById("pause").value = "pause";
       document.getElementById("pause").textContent = "pause";
     } else {
@@ -1007,7 +1009,7 @@ function vote(index) {
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
         `<div class="alert alert-success alert-dismissible" role="alert">`,
-        `   <div>Congratulations!! you have successfully voted.</div>`,
+        `   <div><h2 class="text-center">Hi!Thank You for your Voting<br>谢谢您的投票<br>नमस्ते! आपके वोट के लिए धन्यवाद<br>投票どうもありがとうございます</h2></div>`,
         '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         "</div>",
       ].join("");
@@ -1127,7 +1129,7 @@ function MintNFT() {
     .on("receipt", function (receipt) {
       console.log(receipt);
       lastTokenId = receipt.events.Transfer.returnValues.tokenId;
-      sessionStorage.setItem("lastTokenId", lastTokenId);
+      localStorage.setItem("lastTokenId", lastTokenId);
 
       const wrapper = document.createElement("div");
       wrapper.innerHTML = [
@@ -1178,7 +1180,7 @@ function listingNFT(tokenid, price) {
         .on("receipt", function (receipt1) {
           console.log(receipt1.events.Listed.returnValues.listingId);
           lastListingId = receipt1.events.Listed.returnValues.listingId;
-          sessionStorage.setItem("lastListingId", lastListingId);
+          localStorage.setItem("lastListingId", lastListingId);
 
           const wrapper = document.createElement("div");
           wrapper.innerHTML = [
@@ -1220,7 +1222,7 @@ function listingNFT(tokenid, price) {
 }
 
 function getAllNft() {
-  lastListingId = parseInt(sessionStorage.getItem("lastListingId"));
+  lastListingId = parseInt(localStorage.getItem("lastListingId"));
   // console.log(lastListingId);
   var temp = [".row1", ".row2", ".row3", ".row4"];
   var j = -1;
@@ -1381,7 +1383,7 @@ $("#listingNft").click(function (val) {
 
 // admin end vote
 $("#endVote").click(function (val) {
-  sessionStorage.setItem("endVote", true);
+  localStorage.setItem("endVote", true);
   const wrapper = document.createElement("div");
   wrapper.innerHTML = [
     `<div class="alert alert-success alert-dismissible" role="alert">`,
@@ -1400,7 +1402,7 @@ $("#pause").click(function (val) {
   if (btn.value == "pause") {
     btn.value = "continue";
     btn.textContent = "continue";
-    sessionStorage.setItem("pause", true);
+    localStorage.setItem("pause", true);
     const wrapper = document.createElement("div");
     wrapper.innerHTML = [
       `<div class="alert alert-success alert-dismissible" role="alert">`,
@@ -1413,7 +1415,7 @@ $("#pause").click(function (val) {
   } else if (btn.value == "continue") {
     btn.value = "pause";
     btn.textContent = "pause";
-    sessionStorage.setItem("pause", false);
+    localStorage.setItem("pause", false);
     const wrapper = document.createElement("div");
     wrapper.innerHTML = [
       `<div class="alert alert-success alert-dismissible" role="alert">`,
@@ -1433,7 +1435,7 @@ $("#reset").click(function (val) {
 //for login home page
 $("#submit").click(function () {
   let value = $("#loginId").val();
-  let temp = "0xE390F21E31ccd2160AE461fFA24788FfD98901b9";
+  let temp = "0x25236bdb3cd72bEBaA0bea08f6f42cB924c3F659";
   if (value.toLowerCase() == temp.toLowerCase()) {
     window.location.href = "./Admin.html";
   } else if (value.toLowerCase() == userAccount.toLowerCase()) {
