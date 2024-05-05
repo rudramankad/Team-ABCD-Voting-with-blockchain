@@ -23,11 +23,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>EVoting</title>
+    <title>BitTitans Evoting</title>
   </head>
   <body>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark">
+    <nav class="navbar navbar-expand-lg bg-black">
       <div class="container-fluid">
         <a class="navbar-brand text-light">TEAM ABCD</a>
         <button
@@ -39,10 +39,26 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon my-toggle"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item px-1">
+              <a
+                class="nav-link text-muted"
+                aria-current="page"
+                href="./Voter.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item px-1">
+              <a class="nav-link active text-light" href="./Candidates.html"
+                >Candidates</a
+              >
+            </li>
+            <li class="nav-item px-1">
+              <a class="nav-link active text-light" href="">NFT</a>
+            </li>
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle text-muted"
@@ -57,7 +73,7 @@
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" id="adminBalance"
-                    >Other</a
+                    >Something else here</a
                   >
                 </li>
               </ul>
@@ -70,68 +86,16 @@
     <!-- alert section  -->
     <div id="txStatus"></div>
 
-    <!-- body -->
-    <section id="adminSection">
-<<<<<<< HEAD
-      <h2 class="text-center">Hi!Thank You for your Voting<br>नमस्ते! आपके वोट के लिए धन्यवाद<br>谢谢您的投票<br>投票どうもありがとうございます</h2>
-=======
-      <h2 class="text-center">ADMIN DASHBOARD</h2>
->>>>>>> 5a89371ad4f63248f92b9540ace2288c48397aa1
-      <div class="action mt-5 ms-3">
-        <button type="submit" id="endVote" class="me-4 btn btn-outline-danger">
-          END VOTING
-        </button>
-        <button
-          type="submit"
-          id="pause"
-          value="pause"
-          class="me-4 btn btn-outline-warning"
-<<<<<<< HEAD
-        >Submit</button>
-=======
-        >SUBMIT</button>
->>>>>>> 5a89371ad4f63248f92b9540ace2288c48397aa1
-        <button type="reset" id="reset" class="me-4 btn btn-outline-secondary">
-          RESET
-        </button>
-      </div>
-    </section>
+    <!-- main section -->
+    <div class="mainSection mx-5 my-5">
+      <div class="row row1"></div>
+      <div class="row row2"></div>
+      <div class="row row3"></div>
+      <div class="row row4"></div>
+    </div>
 
-<<<<<<< HEAD
- 
-    
-=======
-    <!-- hr section -->
-    <hr class="hr-text" data-content="NFT Section" />
-
-    <!-- nft section -->
-    <section id="nftSection">
-      <button type="submit" id="mint" class="mx-auto btn btn-outline-primary">
-        Mint NFT
-      </button>
-      <div class="input-group my-3 mx-auto">
-        <input
-          type="number"
-          class="form-control"
-          placeholder="Token Id"
-          id="tokenid"
-          aria-describedby="button-addon2"
-        />
-        <input
-          type="number"
-          class="form-control"
-          placeholder="Price"
-          id="price"
-          aria-describedby="button-addon2"
-        />
-        <button class="btn btn-outline-secondary" type="button" id="listingNft">
-          List NFT
-        </button>
-      </div>
-    </section>
->>>>>>> 5a89371ad4f63248f92b9540ace2288c48397aa1
-
+    <!-- script -->
     <script src="./index.js"></script>
-    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
